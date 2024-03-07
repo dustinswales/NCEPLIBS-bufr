@@ -114,7 +114,7 @@ endif()
 add_subdirectory(tables)
 
 # Turn on unit testing.
-if( (CMAKE_Fortran_COMPILER_ID MATCHES "^(Intel)$") or (CMAKE_Fortran_COMPILER_ID MATCHES "^(GNU)$") )
+if( (${CMAKE_Fortran_COMPILER_ID} MATCHES "Intel") OR (${CMAKE_Fortran_COMPILER_ID} MATCHES "GNU") )
   include(CTest)
   if(BUILD_TESTING)
     add_subdirectory(test)
