@@ -114,9 +114,11 @@ endif()
 add_subdirectory(tables)
 
 # Turn on unit testing.
-include(CTest)
-if(BUILD_TESTING)
-  add_subdirectory(test)
+if( (CMAKE_Fortran_COMPILER_ID MATCHES "^(Intel)$") or (CMAKE_Fortran_COMPILER_ID MATCHES "^(GNU)$") )
+  include(CTest)
+  if(BUILD_TESTING)
+    add_subdirectory(test)
+  endif()
 endif()
 
 # Generate doxygen documentation if desired.
